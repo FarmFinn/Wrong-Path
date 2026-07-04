@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://ddh3sft82pg3b"]
+
+[ext_resource type="Script" uid="uid://gxlvpgv0jora" path="res://Main/main.gd" id="1_o60nc"]
+[ext_resource type="Texture2D" uid="uid://buv28xb1mc1jm" path="res://WrongFolder/0.png" id="1_qac2q"]
+[ext_resource type="Texture2D" uid="uid://cwlh1mv0tpvi" path="res://WrongFolder/1.png" id="2_o60nc"]
+[ext_resource type="Texture2D" uid="uid://biili1nabowhc" path="res://WrongFolder/2.png" id="3_f3gf5"]
+[ext_resource type="Texture2D" uid="uid://d0k7wbalvbl2i" path="res://WrongFolder/3.png" id="4_rix8b"]
+[ext_resource type="Texture2D" uid="uid://dqp4la30i7p3v" path="res://WrongFolder/4.png" id="5_0jx5h"]
+[ext_resource type="Texture2D" uid="uid://bc00c1uw2t7t7" path="res://WrongFolder/5.png" id="6_uhr2j"]
+[ext_resource type="Texture2D" uid="uid://dar2xmsiqo5aw" path="res://WrongFolder/6.png" id="7_l5bfp"]
+[ext_resource type="Texture2D" uid="uid://cckp8olhagv83" path="res://WrongFolder/7.png" id="8_guo5i"]
+[ext_resource type="Texture2D" uid="uid://b5uipatwrujx2" path="res://WrongFolder/8.png" id="9_0gq1e"]
+[ext_resource type="Texture2D" uid="uid://1q1816dud4rm" path="res://WrongFolder/9.png" id="10_wbdht"]
+[ext_resource type="Texture2D" uid="uid://bhnl8kyqiqfpy" path="res://WrongLight.png" id="12_f3gf5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_puekb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qac2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o60nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f3gf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rix8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0jx5h")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_uhr2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l5bfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_guo5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0gq1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wbdht")
+}],
+"loop": false,
+"name": &"Emerging",
+"speed": 2.0
+}]
+
+[node name="Main" type="Node2D" unique_id=1919354754]
+script = ExtResource("1_o60nc")
+
+[node name="Base" type="Node2D" parent="." unique_id=526253499]
+
+[node name="Camera2D" type="Camera2D" parent="Base" unique_id=1413276794]
+
+[node name="Background" type="Polygon2D" parent="Base" unique_id=343331030]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-960, -540, -960, 540, 960, 540, 960, -540)
+uv = PackedVector2Array(-576, -324, -576, 324, 576, 324, 576, -324)
+
+[node name="Logo" type="AnimatedSprite2D" parent="." unique_id=1742875704]
+texture_filter = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_puekb")
+animation = &"Emerging"
+
+[node name="Light" type="Sprite2D" parent="Logo" unique_id=83676952]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+texture = ExtResource("12_f3gf5")
