@@ -23,6 +23,16 @@ func _on_start_button_up():
 
 func _on_start_pressed():
 	disable()
+	get_parent().get_child(3).pause()
+	for i in range(120):
+		if (i<60):
+			modulate.v -= 1.0/60
+			get_parent().get_child(0).get_child(1).self_modulate.v -= 1.0/60
+			get_parent().get_child(1).get_child(0).self_modulate.v -= 1.0/60
+		get_parent().get_child(1).self_modulate.v -= 1.0/120
+		await get_tree().create_timer(1.0/60).timeout
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://Life/life.tscn")
 
 
 func _on_exit_mouse_entered():
@@ -44,9 +54,15 @@ func _on_exit_button_up():
 func _on_exit_pressed():
 	disable()
 	get_parent().get_child(3).pause()
-	for i in range(60):
-		get_parent().modulate.v -= 1.0/60
+	for i in range(120):
+		if (i<60):
+			modulate.v -= 1.0/60
+			get_parent().get_child(0).get_child(1).self_modulate.v -= 1.0/60
+			get_parent().get_child(1).get_child(0).self_modulate.v -= 1.0/60
+			get_parent().get_child(2).self_modulate.v -= 1.0/60
+		get_parent().get_child(1).self_modulate.v -= 1.0/120
 		await get_tree().create_timer(1.0/60).timeout
+	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()
 
 

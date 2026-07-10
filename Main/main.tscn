@@ -59,7 +59,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rix8b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puekb"]
 texture = ExtResource("13_rix8b")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -395,7 +395,7 @@ texture = ExtResource("13_rix8b")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.5, 0.5, 1)
-sources/0 = SubResource("TileSetAtlasSource_rix8b")
+sources/0 = SubResource("TileSetAtlasSource_puekb")
 
 [sub_resource type="Animation" id="Animation_0gq1e"]
 resource_name = "End"
