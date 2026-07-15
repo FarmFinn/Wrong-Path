@@ -4,9 +4,12 @@ extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -800.0
 
-
 func _physics_process(delta):
+	
 	if (not V.stop):
+		
+		modulate.h += 0.5/360
+		
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
