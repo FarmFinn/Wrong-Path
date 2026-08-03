@@ -26,11 +26,14 @@ func _on_start_pressed():
 	get_parent().get_child(3).pause()
 	for i in range(120):
 		if (i<60):
-			modulate.v -= 1.0/60
-			get_parent().get_child(0).get_child(1).self_modulate.v -= 1.0/60
-			get_parent().get_child(1).get_child(0).self_modulate.v -= 1.0/60
-		get_parent().get_child(1).self_modulate.v -= 1.0/120
+			modulate.a -= 1.0/60
+			#get_parent().get_child(0).get_child(1).self_modulate.v -= 1.0/60
+			if (get_parent().get_child(0).get_child(1).modulate.v > 0.5):
+				get_parent().get_child(0).get_child(1).modulate.v -= 1/120.0
+			get_parent().get_child(1).get_child(0).self_modulate.a -= 1.0/60
+		get_parent().get_child(1).self_modulate.a -= 1.0/120
 		await get_tree().create_timer(1.0/60).timeout
+	get_parent().get_child(0).get_child(1).modulate.v = 0.5
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://Life/life.tscn")
 

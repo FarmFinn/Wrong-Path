@@ -18,15 +18,22 @@ func _ready():
 				"ring_color",
 				Color(1.0, 0.5, 0.5, 0.5)
 			)
+			
 		elif ("Wrong" in name):
 			(material as ShaderMaterial).set_shader_parameter(
 				"ring_color",
 				Color(1.0, 0.0, 0.0, 0.5)
 			)
-			(material as ShaderMaterial).set_shader_parameter(
-			"center",
-			Vector2(0,405+(pos.y*0.75))
-			)
+			#var centerx = (material as ShaderMaterial).get_shader_parameter("center").x
+			for i in range(60):
+				(material as ShaderMaterial).set_shader_parameter(
+				"center",
+				#Vector2(centerx-(24*(sin((i-14)*2*PI/60)+1)), 405+(pos.y*0.75))
+				Vector2((material as ShaderMaterial).get_shader_parameter("center").x-(24*(sin((i-14)*2*PI/60)+1)), 405+(pos.y*0.75))
+				)
+				#centerx -= 24*(sin((i-14)*2*PI/60)+1)
+				await get_tree().create_timer(1.0/60).timeout
+				
 		else:
 			(material as ShaderMaterial).set_shader_parameter(
 				"ring_color",

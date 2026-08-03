@@ -19,6 +19,7 @@ config/icon="uid://c3y7hy2lxsoe3"
 [autoload]
 
 V="*uid://bhg2ck2bvgafq"
+Righter="*uid://66i1nu0ju6v1"
 
 [display]
 

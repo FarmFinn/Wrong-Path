@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://gnyd3upwx0sd"]
+
+[ext_resource type="Script" uid="uid://66i1nu0ju6v1" path="res://Life/right.gd" id="1_ouitg"]
+[ext_resource type="Texture2D" uid="uid://dh1mxls7gwld0" path="res://Life/RightOne.png" id="2_yiava"]
+
+[node name="Right1" type="Area2D" unique_id=348154201]
+texture_filter = 1
+script = ExtResource("1_ouitg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1666103606]
+rotation = 3.1415927
+polygon = PackedVector2Array(-4.5, -8, -8, 8, 8, 8, 3.5, -8, 0, 8)
+
+[node name="Right" type="Sprite2D" parent="CollisionPolygon2D" unique_id=1655316274]
+texture = ExtResource("2_yiava")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
