@@ -15,11 +15,11 @@ func _process(_delta: float) -> void:
 func needed():
 	if (V.room == 0 and V.light == 0):
 		return true
-	elif (V.room == 1 and V.light == 4):
+	elif (V.room == 1 and V.light == 22):
 		return true
-	elif (V.room == 2 and V.light == 4):
+	elif (V.room == 2 and V.light == 36):
 		return true
-	elif (V.room == 3 and V.light == 0):
+	elif (V.room == 3 and V.light == 38):
 		return true
 	elif (V.room == 4 and V.light == 0):
 		return true

@@ -27,3 +27,10 @@ func _on_they_stepped(coord: Vector2i) -> void:
 		V.light -= 1
 	print("Light" + str(V.light))
 	notify_runtime_tile_data_update()
+
+
+func _on_life_right():
+	V.light = 0
+	tobright = []
+	notify_runtime_tile_data_update()
+	print("reset")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -1000.0
 
 signal stepped
 var previous = null
@@ -36,6 +36,7 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction * SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED*0.5)
+			#velocity.x = move_toward(velocity.x, 0, SPEED*0.5)
+			velocity.x *= 0.75
 	
 		move_and_slide()

@@ -65,6 +65,8 @@ func _process(_delta):
 		pass #They disappears
 		await get_tree().create_timer(0.1).timeout
 		$THEY.position = Vector2(-736,320)
+		$THEY.modulate.s = 0
+		
 		pass #They appears again
 		await get_tree().create_timer(0.1).timeout
 		Appeared.emit()
@@ -73,7 +75,7 @@ func _process(_delta):
 func _on_appeared():
 	for i in range(240):
 		if (i<60):
-			$THEY.modulate.s = (i+59)/480.0
+			$THEY.modulate.s = (i+1)/240.0
 		#$Waves/Wave.scale.x = (i+1)/30.0
 		#$Waves/Wave.scale.y = (i+1)/30.0
 		#if (i>=120):
