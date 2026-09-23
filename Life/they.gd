@@ -4,6 +4,7 @@ const SPEED = 400.0
 const JUMP_VELOCITY = -1000.0
 
 signal stepped
+var jumped = false
 var previous = null
 
 func _physics_process(delta):
@@ -18,6 +19,7 @@ func _physics_process(delta):
 			previous = null
 		
 		else:
+			jumped = false
 			var tile_coord = get_parent().get_child(5).local_to_map(get_parent().get_child(5).to_local(global_position))
 			tile_coord = Vector2i(tile_coord.x, tile_coord.y+1)
 			var tile_data = get_parent().get_child(5).get_cell_tile_data(tile_coord)
@@ -29,6 +31,9 @@ func _physics_process(delta):
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
+			jumped = true
+		if not (Input.is_action_pressed("ui_jump")) and velocity.y < 0 and jumped:
+			velocity.y += 39.6
 	
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -37,6 +42,6 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 		else:
 			#velocity.x = move_toward(velocity.x, 0, SPEED*0.5)
-			velocity.x *= 0.75
+			velocity.x *= 0.5
 	
 		move_and_slide()
